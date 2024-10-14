@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: Build and Push Docker Image
 
 on:
   workflow_dispatch:  # 允许手动触发
@@ -28,3 +28,12 @@ jobs:
       - name: Build Docker image
         run: |
           docker-compose build  # 构建镜像
+
+      - name: Log in to Docker registry
+        run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | docker login --username="${{ secrets.DOCKER_USERNAME }}" --password-stdin crpi-3yj0xy215oa2xdp6.cn-shenzhen.personal.cr.aliyuncs.com
+
+      - name: Tag and Push Docker image
+        run: |
+          docker tag library/notary_server crpi-3yj0xy215oa2xdp6.cn-shenzhen.personal.cr.aliyuncs.com/jay0001/notary_server:latest  # 替换为你的仓库和标签
+          docker push crpi-3yj0xy215oa2xdp6.cn-shenzhen.personal.cr.aliyuncs.com/jay0001/notary_server:latest  # 推送镜像
