@@ -1,6 +1,7 @@
 name: Build Docker Image
 
 on:
+  workflow_dispatch:  # 允许手动触发
   push:
     branches:
       - main  # 在 main 分支的推送时触发
