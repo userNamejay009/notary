@@ -17,9 +17,7 @@ jobs:
         platform: "${{ matrix.platform }}"
         template: "registry.cn-hangzhou.aliyuncs.com/wise2c-dev/orchestration:${{ steps.meta.outputs.version }}-ARCH"
       name: "Build the Docker image"
-      run: |
-        ls
-        docker-compose up -d
+      run: docker-compose up -d
       timeout-minutes: 30
     strategy:
       fail-fast: false
