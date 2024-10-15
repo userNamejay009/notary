@@ -37,3 +37,5 @@ jobs:
         run: |
           docker tag library/notary_server crpi-3yj0xy215oa2xdp6.cn-shenzhen.personal.cr.aliyuncs.com/jay0001/notary_server:latest  # 替换为你的仓库和标签
           docker push crpi-3yj0xy215oa2xdp6.cn-shenzhen.personal.cr.aliyuncs.com/jay0001/notary_server:latest  # 推送镜像
+          docker tag library/notary_signer crpi-3yj0xy215oa2xdp6.cn-shenzhen.personal.cr.aliyuncs.com/jay0001/notary_signer:latest
+          docker push crpi-3yj0xy215oa2xdp6.cn-shenzhen.personal.cr.aliyuncs.com/jay0001/notary_signer:latest
